@@ -1,4 +1,5 @@
 #include <iostream>
+#include <utility>
 #include "move_constructor.h"
 namespace rval {
 
@@ -10,11 +11,11 @@ namespace rval {
         std::cout << "Metadata Name Construct" << std::endl;
     }
 
-    MetaData::MetaData(const MetaData& other) {
+    MetaData::MetaData(const MetaData& other): _name(other._name) {
         std::cout << "Metadata Copy Construct" << std::endl;
     }
 
-    MetaData::MetaData(MetaData&& other) noexcept {
+    MetaData::MetaData(MetaData&& other) noexcept: _name(std::move(other._name)) {
         std::cout << "Metadata Move Construct" << std::endl;
     }
 
@@ -34,7 +35,7 @@ namespace rval {
         std::cout << "TestMoveConstruct Copy Construct" << std::endl;
     }
 
-    TestMoveConstruct::TestMoveConstruct(TestMoveConstruct&& other) noexcept: _meta(other._meta)  {
+    TestMoveConstruct::TestMoveConstruct(TestMoveConstruct&& other) noexcept: _meta(std::move(other._meta))  {
         std::cout << "TestMoveConstruct Move Construct" << std::endl;
     }
 
@@ -45,3 +46,4 @@ namespace rval {
     }
 
 } // namespace rval {
+
