@@ -14,4 +14,5 @@ add_definitions(${CXX_FLAGS})
 
 add_subdirectory(rval)
 add_subdirectory(std_begin_end)
+add_subdirectory(std_async)
 
