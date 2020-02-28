@@ -10,3 +10,4 @@ int main(int argc, const char **argv) {
     std::async(std::launch::async, anotherFunction, L"liuyan");
     return 0;
 }
+
